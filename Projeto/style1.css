@@ -1,0 +1,10 @@
+body {
+background-color: darkgray;
+
+}
+
+td {
+	border: 0.1em solid blue;
+	font-size: 30px;
+	
+}

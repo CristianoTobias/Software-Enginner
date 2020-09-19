@@ -1,0 +1,60 @@
+
+<!DOCYTPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+
+<body>
+<button onclick="adicionarSequencia()">Adicionar Sequência</button>	
+<button onclick="calcularTiradas()">calcular</button>	
+<table>
+	<thead>
+		<td>Sequência</td>
+		<td>A produzir</td>
+		<td>Tiradas por peso</td>
+		<td>Tiradas por tempo</td>
+	</thead>
+
+	<tbody id="tbody">
+		<tr>
+		<td>Sequência 1</td>
+		<td><input type="number" id="aproduzir1"></td>
+		<td><span id="tiradas_peso1">0</span></td>
+		<td><span id="tiradas_tempo1">0</span></td>
+		<tr>
+
+	</tbody>
+
+	<tfoot>
+		<tr>
+		<td>total</td>
+		<td><span id="total_a_produzir">0</span></td>
+		<td><span id="total_tiradas_peso">0</span></td>
+		<td><span id="total_tiradas_tempo">0</span></td>
+	    </tr>
+
+	</tfoot>
+</table>
+
+<section>
+	<label>Peso da Tirada<input type=Number id="peso_tirada" >kg</label><br>
+	<label>Tempo da Tirada<input type=Number id="peso_tirada" >min</label>
+
+</section>
+<section>
+	<label>Gramatura<input type=Number id="gramatura" >g</label><br>
+	<label>Velocidade<input type=Number id="velocidade" >m/min</label><br>
+	<span id="producao_hora">0</span><br>
+	<button onclick="producaoHora()">Calcular Produção Hora</button>	
+
+</section>
+<script type="text/javascript" src="script1.js"></script>
+
+</body>
+
+
+
+
+</html>
