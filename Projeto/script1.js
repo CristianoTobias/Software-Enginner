@@ -6,6 +6,7 @@ function adicionarSequencia(){
 	let td = document.createElement('td')
 	let span = document.createElement('span')
 	let input = document.createElement('input')
+	let button = document.createElement('button')
 
 	span.innerHTML = `Sequência ${count}`
 	td.appendChild(span)
@@ -22,24 +23,55 @@ function adicionarSequencia(){
 
 	td = document.createElement('td')
 	span = document.createElement('span')
-	span.id = `tiradas_peso${count}`
+	span.id = `tirada_peso${count}`
 	span.innerHTML = 0
 	td.appendChild(span)
 	tr.appendChild(td)
 
 	td = document.createElement('td')
 	span = document.createElement('span')
-	span.id = `tiradas_tempo${count}`
+	span.id = `tirada_tempo${count}`
 	span.innerHTML = 0
 	td.appendChild(span)
 	tr.appendChild(td)
 
-		
 	
+	
+    button.addEventListener('click', function() {
+    alert(this.id)
+    let id = this.id
+    deletarSequencia(id)
+})
+    button.id = `button${count}`
+    button.className = 'button1'
+	button.textContent = 'remove'
+	td = document.createElement('td')
+	td.appendChild(button)
+
+	tr.appendChild(td)
+    
+	tr.id = `tr${count}`
 	tbody.appendChild(tr)
 	
+
 	count++;
+
+	
 }
+
+const deletarSequencia = (id) => {
+       
+        if(id){
+        let deleteId = id[id.length - 1]
+		document.getElementById(`tr${deleteId}`).remove()
+		alet(deleteId,id)
+	    }
+		
+		
+	}
+	
+
+
 function calcularTiradas(){
 	let totalProduzir = document.getElementById('total_a_produzir')
 	let totalTiradasPeso = document.getElementById('total_tiradas_peso')
@@ -48,23 +80,24 @@ function calcularTiradas(){
 	let calculoTotalTiradasTempo = 0
 	let calculoTotalProduzir = 0
 	for(let i = 1; i < count; i++){
+		
 	let aProduzir = document.getElementById(`aproduzir${i}`).value
 	let pesoTirada = document.getElementById('peso_tirada').value
 	let tempoTirada = document.getElementById('tempo_tirada').value
 	let numTiradasPeso = Math.floor(aProduzir / pesoTirada)
 	let numTiradasTempo = Math.floor(aProduzir / 1050)
-	let tiradasPeso = document.getElementById(`tiradas_peso${i}`)
-	let tiradasTempo = document.getElementById(`tiradas_tempo${i}`)
+	let tiradaPeso = document.getElementById(`tirada_peso${i}`)
+	let tiradaTempo = document.getElementById(`tirada_tempo${i}`)
 	
 
-	tiradasPeso.innerHTML = numTiradasPeso
-	tiradasTempo.innerHTML = numTiradasTempo
+	tiradaPeso.innerHTML = numTiradasPeso
+	tiradaTempo.innerHTML = numTiradasTempo
 	calculoTotalProduzir += parseFloat(aProduzir)
 
      calculoTotalTiradasPeso += numTiradasPeso
      calculoTotalTiradasTempo += numTiradasTempo
 
-    
+  
 }
 totalTiradasPeso.innerHTML = calculoTotalTiradasPeso
 totalTiradasTempo.innerHTML = calculoTotalTiradasTempo

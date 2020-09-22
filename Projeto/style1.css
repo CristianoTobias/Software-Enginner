@@ -1,10 +1,15 @@
 body {
-background-color: darkgray;
+background-color: #545454;
+color: white;
 
 }
 
 td {
-	border: 0.1em solid blue;
+	border: 0.1em inset white;
 	font-size: 30px;
 	
+	
+}
+.button1 {
+	color: blue;
 }

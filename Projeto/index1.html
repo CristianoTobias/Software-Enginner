@@ -17,14 +17,15 @@
 		<td>Tiradas por tempo</td>
 	</thead>
 
-	<tbody id="tbody">
-		<tr>
+	<tbody id="tbody" >
+		<tr id="tr1">
 		<td>Sequência 1</td>
 		<td><input type="number" id="aproduzir1"></td>
-		<td><span id="tiradas_peso1">0</span></td>
-		<td><span id="tiradas_tempo1">0</span></td>
+		<td><span id="tirada_peso1">0</span></td>
+		<td><span id="tirada_tempo1">0</span></td>
+		<td><button id="button1" class="button1"  onclick = "deletarSequencia()">remove</button></td>
 		<tr>
-
+			
 	</tbody>
 
 	<tfoot>
@@ -33,14 +34,15 @@
 		<td><span id="total_a_produzir">0</span></td>
 		<td><span id="total_tiradas_peso">0</span></td>
 		<td><span id="total_tiradas_tempo">0</span></td>
+		
 	    </tr>
 
 	</tfoot>
 </table>
 
 <section>
-	<label>Peso da Tirada<input type=Number id="peso_tirada" >kg</label><br>
-	<label>Tempo da Tirada<input type=Number id="peso_tirada" >min</label>
+	<label>Peso da Tirada<input type=Number id="peso_tirada" value = "1050" >kg</label><br>
+	<label>Tempo da Tirada<input type=Number id="tempo_tirada" >min</label>
 
 </section>
 <section>
