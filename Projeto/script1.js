@@ -18,6 +18,7 @@ function adicionarSequencia(){
 
 	span.appendChild(input)
 	input.id = `aproduzir${count}`
+	input.value = 0
 	td.appendChild(span)
 	tr.appendChild(td)
 
@@ -38,7 +39,7 @@ function adicionarSequencia(){
 	
 	
     button.addEventListener('click', function() {
-    alert(this.id)
+    
     let id = this.id
     deletarSequencia(id)
 })
@@ -59,12 +60,20 @@ function adicionarSequencia(){
 	
 }
 
+let button = document.getElementById('button1')
+button.addEventListener('click', function() {
+    
+    let id = this.id
+    deletarSequencia(id)
+})
+
+
 const deletarSequencia = (id) => {
        
         if(id){
-        let deleteId = id[id.length - 1]
-		document.getElementById(`tr${deleteId}`).remove()
-		alet(deleteId,id)
+        	
+        document.getElementById(`tr${id.match(/[0-9]+/g)}`).remove()
+		
 	    }
 		
 		
@@ -79,15 +88,23 @@ function calcularTiradas(){
 	let calculoTotalTiradasPeso = 0
 	let calculoTotalTiradasTempo = 0
 	let calculoTotalProduzir = 0
+	let aProduzir
+	let pesoTirada
+	let tempoTirada 
+	let numTiradasPeso 
+	let numTiradasTempo 
+	let tiradaPeso
+	let tiradaTempo
 	for(let i = 1; i < count; i++){
+		if( document.getElementById(`aproduzir${i}`)){
 		
-	let aProduzir = document.getElementById(`aproduzir${i}`).value
-	let pesoTirada = document.getElementById('peso_tirada').value
-	let tempoTirada = document.getElementById('tempo_tirada').value
-	let numTiradasPeso = Math.floor(aProduzir / pesoTirada)
-	let numTiradasTempo = Math.floor(aProduzir / 1050)
-	let tiradaPeso = document.getElementById(`tirada_peso${i}`)
-	let tiradaTempo = document.getElementById(`tirada_tempo${i}`)
+	 aProduzir = document.getElementById(`aproduzir${i}`).value
+	 pesoTirada = document.getElementById('peso_tirada').value
+	 tempoTirada = document.getElementById('tempo_tirada').value
+	 numTiradasPeso = Math.floor(aProduzir / pesoTirada)
+	 numTiradasTempo = Math.floor(aProduzir / 1050)
+	 tiradaPeso = document.getElementById(`tirada_peso${i}`)
+	 tiradaTempo = document.getElementById(`tirada_tempo${i}`)
 	
 
 	tiradaPeso.innerHTML = numTiradasPeso
@@ -97,7 +114,7 @@ function calcularTiradas(){
      calculoTotalTiradasPeso += numTiradasPeso
      calculoTotalTiradasTempo += numTiradasTempo
 
-  
+  }
 }
 totalTiradasPeso.innerHTML = calculoTotalTiradasPeso
 totalTiradasTempo.innerHTML = calculoTotalTiradasTempo
